@@ -1,10 +1,12 @@
 <?php
 
+include 'top.php';
+
 if (isset($_SESSION['usersId'])) {
 
-    header("Location: http://localhost/user-management/dashboard.php");
-    exit;
-  }
+  header("Location: http://localhost/user-management/dashboard.php");
+  exit;
+}
 
 ?>
 
@@ -53,8 +55,17 @@ if (isset($_SESSION['usersId'])) {
   <?php
     unset($_SESSION['error_message']);
   } ?>
-  <h1>LogIn to submit task Report</h1>
-  <a href="http://localhost/user-management/login.php">LogIn</a>
+
+  <div class="container position-absolute top-50 start-50 translate-middle">
+    <div class="card">
+      <h5 class="card-header">User Management</h5>
+      <div class="card-body">
+        <h5 class="card-title">Submit Task</h5>
+        <p class="card-text">This Portal is to submit task and There is admin Panel also to See the Users and Tasks</p>
+        <a href="http://localhost/user-management/login.php" class="btn btn-primary">Go LogIn</a>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

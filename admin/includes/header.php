@@ -48,6 +48,7 @@ if (isset($_POST) && !empty($_POST['logout'])) {
             <div>
                 <a class="navbar-brand" href="#">Logo</a>
                 <a class="navbar-brand" href="<?php echo $actual_link ?>/admin/dashboard.php">Users</a>
+                <a class="navbar-brand" href="<?php echo $actual_link ?>/admin/userTasks.php">Tasks</a>
             </div>
             <div class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
