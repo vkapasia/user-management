@@ -33,8 +33,9 @@ $taskData = $database->getallData('user_task');
           unset($_SESSION['success_message']);
         } ?>
   <div class="d-flex justify-content-between m-2">
-    <h3>User Data</h3>
-
+    <h3>Task Data</h3>
+    <!-- <button class="btn btn-success">Download CSV</button> -->
+    <a class="btn btn-success" href="<?php echo $actual_link ?>/admin/csv.php">Download CSV</a>
   </div>
 
   <table class="table table-striped table-hover">
