@@ -1,18 +1,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <?php
 
-
+include 'includes/top.php';
 session_start();
-
-
-
-// Turn off all error reporting
-error_reporting(0);
 
 include_once 'database.php';
 
-// Turn off all error reporting
-error_reporting(0);
 
 $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]/user-management";
 

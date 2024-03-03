@@ -1,4 +1,6 @@
 <?php
+include '../top.php';
+
 include 'includes/header.php';
 
 include_once '../includes/database.php';

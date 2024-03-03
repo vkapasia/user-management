@@ -1,4 +1,5 @@
 <?php
+include '../top.php';
 
 include 'includes/header.php';
 
@@ -61,13 +62,35 @@ if (!isset($_SESSION['adminId'])) {
         </div>
         <div class="mb-3">
             <label for="confirm_password" class="form-label">Confirm Password</label>
-            <input type="password" name="confirm_password" class="form-control" id="confirm_password">
+            <input type="password" class="form-control" id="confirm_password">
         </div>
         <div class="mb-3 form-check">
             <input type="checkbox" class="form-check-input" id="autoPassword">
-            <label class="form-check-label" for="autoPassword">Auto Generate Password</label>
+            <label class="form-check-label" id="autoPassword" for="autoPassword">Auto Generate Password</label>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
+
+
+<script>
+    $(document).ready(function() {
+    //set initial state.
+
+
+    $('#autoPassword').change(function() {
+        if(this.checked) {
+            var returnVal = confirm("Are you sure?");
+            if(returnVal == true){
+                $("#password").attr('disabled', 'disabled');
+                $("#confirm_password").attr('disabled', 'disabled');
+            }
+            $(this).prop("checked", returnVal);
+        }else{
+            $("#password").removeAttr('disabled');
+            $("#confirm_password").removeAttr('disabled');
+        }     
+    });
+});
+</script>
 <?php include 'includes/footer.php'; ?>

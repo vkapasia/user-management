@@ -1,5 +1,7 @@
 <?php
 
+include 'top.php';
+
 session_start();
 
 if (!isset($_SESSION['usersId'])) {

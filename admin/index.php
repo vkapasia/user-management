@@ -1,5 +1,7 @@
 <?php
 
+include '../top.php';
+
 include_once '../includes/database.php';
 
 if (isset($_SESSION['adminId'])) {

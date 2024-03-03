@@ -1,4 +1,5 @@
 <?php
+include 'includes/top.php';
 
 session_start();
 
@@ -90,19 +91,23 @@ class databasequerys extends database
     function insertData($table, $data)
     {
 
+        $autoPassword =  $this->randomPassword();
+
+        // print_r($data);exit;
         foreach ($data as $key => $value) {
             $keys[] = $key;
             if ($key == 'password') {
-                if (empty($value)) {
-                    $value =  $this->randomPassword();
-                } else {
-                    $value = md5($value);
-                }
+                $value = md5($value);
             }
             $values[] = "'" . $value . "'";
         };
-        array_pop($keys);
-        array_pop($values);
+
+        $arrayCount = count($keys);
+
+        if($arrayCount == '4'){
+            array_push($keys, "password");
+            array_push($values, "'" . md5($autoPassword) . "'");
+        }
 
         $kkk = implode(',', $keys);
         $vvv = implode(',', $values);
@@ -111,10 +116,9 @@ class databasequerys extends database
         $sql = "INSERT INTO $table ($kkk)
             VALUES ($vvv)";
 
-        // echo $sql;exit;
 
         if ($this->connect()->query($sql) === TRUE) {
-            $_SESSION["success_message"] = "User Created Successfully";
+            $_SESSION["success_message"] = "User Created Successfully Password is $autoPassword";
             return 'User Created Successfully';
         } else {
             $_SESSION["error_message"] = $this->connect()->error;
